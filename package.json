@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "files": [
     "src",
-    "lib"
+    "lib",
+    "demo"
   ],
   "scripts": {
     "test": "npm run test:eslint",
@@ -14,7 +15,9 @@
     "clean": "rimraf lib demo/build.js demo/build.js.map demo/build-styles.css",
     "demo": "NODE_ENV=development webpack --progress --config demo/webpack.config.js",
     "demo:watch": "NODE_ENV=development webpack --watch --progress --config demo/webpack.config.js",
-    "demo:devserver": "NODE_ENV=development webpack-dev-server --config demo/webpack.config.js --port 5252 --content-base demo/ --progress"
+    "demo:devserver": "NODE_ENV=development webpack-dev-server --config demo/webpack.config.js --port 5252 --content-base demo/ --progress",
+    "prepublish": "npm run compile",
+    "postpublish": "npm run clean"
   },
   "author": "Henrik Haugberg <henrik.haugberg@gmail.com>",
   "license": "MIT",
