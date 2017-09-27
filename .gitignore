@@ -1,6 +1,7 @@
 node_modules
 .DS_Store
 *.log
+lib
 demo/build.js
 demo/build.js.map
 demo/build-styles.css

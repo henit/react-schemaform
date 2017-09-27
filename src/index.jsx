@@ -1,2 +1,2 @@
-import SchemaForm from './SchemaForm';
-export default SchemaForm;
+import BasicSchemaForm from './basic/BasicSchemaForm';
+export default BasicSchemaForm;

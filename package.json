@@ -2,11 +2,16 @@
   "name": "react-schemaform",
   "version": "0.0.3",
   "description": "Light weight react components for rendering JSON Schema forms",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
   "scripts": {
     "test": "npm run test:eslint",
     "test:eslint": "eslint . --ext .js,.jsx",
-    "clean": "rimraf tests/public/*",
+    "compile": "babel src --out-dir lib",
+    "clean": "rimraf lib demo/build.js demo/build.js.map demo/build-styles.css",
     "demo": "NODE_ENV=development webpack --progress --config demo/webpack.config.js",
     "demo:watch": "NODE_ENV=development webpack --watch --progress --config demo/webpack.config.js",
     "demo:devserver": "NODE_ENV=development webpack-dev-server --config demo/webpack.config.js --port 5252 --content-base demo/ --progress"
@@ -15,6 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.22.0",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
