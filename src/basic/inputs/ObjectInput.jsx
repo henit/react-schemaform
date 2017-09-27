@@ -5,21 +5,16 @@ import bemCn from 'bem-cn';
 import Helpers from '../../Helpers';
 import SchemaForm from '../../SchemaForm';
 import _TextInput from './_TextInput';
-// import addIcon from '../icons/add.svg';
-import './ObjectInput.scss';
 
 const block = bemCn('rsf-object-input');
 const allTypes = ['string', 'number', 'null', 'boolean', 'object', 'array'];
 const allTypesSchema = { type: allTypes };
-
-// <img className={ block('icon')() } src={ addIcon } />
 
 export default class ObjectInput extends React.PureComponent {
 
     constructor(props) {
         super(props);
 
-        // this.toggleAddItem = this.toggleAddItem.bind(this);
         this.handleChangeAddPropKey = this.handleChangeAddPropKey.bind(this);
         this.handleAddProp = this.handleAddProp.bind(this);
 
@@ -32,12 +27,6 @@ export default class ObjectInput extends React.PureComponent {
     handleChange(value) {
         this.props.onChange(value);
     }
-
-    /*toggleAddItem() {
-        this.setState({
-            addItem: !this.state.addItem
-        });
-    }*/
 
     handleChangeAddPropKey(addProp) {
         this.setState({ addProp });
@@ -78,39 +67,6 @@ export default class ObjectInput extends React.PureComponent {
                             {/*<button onClick={ this.toggleAddItem }>Cancel</button>*/}
                         </div>
                     )
-                    /*.concat(schema.additionalProperties !== false ?
-                        <div className={ block('row')() } key="add-this-----------">
-                            <_TextInput
-                                value={ this.state.addProp }
-                                onChange={ this.handleChangeAddPropKey }
-                                placeholder="Property key" />
-
-                            <button
-                                className={ block('add-button')() }
-                                onClick={ this.handleAddProp }>
-                                Add property
-                            </button>
-                        </div>
-                        // this.state.addProp
-                        :
-                        <div></div>
-                    )*/
-
-
-                    // Concat to array to avoid re-mount and loosing focus
-                    /*.concat((this.state.addProp && false) ?
-                        <div className={ block('row')() } key={ `item-${numItems}` }>
-                            <span><_TextInput value={ 'x' } onChange={ () => null } placeholder="key" />: </span>
-                            <SchemaForm
-                                components={ components }
-                                autoFocus={ true }
-                                schema={ schema.items || allTypesSchema}
-                                onChange={ this.handleAdd } />
-                            <button onClick={ this.toggleAddItem }>Cancel</button>
-                        </div>
-                        :
-                        []
-                    )*/
                 }
 
                 { schema.additionalProperties !== false &&

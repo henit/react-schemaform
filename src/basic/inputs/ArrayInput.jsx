@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import bemCn from 'bem-cn';
 import Helpers from '../../Helpers';
 import SchemaForm from '../../SchemaForm';
-import './ArrayInput.scss';
 
 const block = bemCn('rsf-array-input');
 const allTypes = ['string', 'number', 'null', 'boolean', 'object', 'array'];

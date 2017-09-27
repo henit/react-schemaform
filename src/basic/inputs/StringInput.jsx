@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bemCn from 'bem-cn';
 import _TextInput from './_TextInput';
-import './StringInput.scss';
 
 const block = bemCn('rsf-string-input');
 

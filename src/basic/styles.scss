@@ -1,7 +1,11 @@
 
-// <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-@import '~font-awesome/css/Font-awesome.min.css';
+// @import '~font-awesome/css/Font-awesome.min.css';
 
-// @import './SchemaField.scss';
-@import './inputs/TextInput.scss';
-
+@import '../fields/LabelField.scss';
+@import './inputs/_TextInput.scss';
+@import './inputs/ArrayInput.scss';
+@import './inputs/BooleanInput.scss';
+@import './inputs/Dropdown.scss';
+@import './inputs/NumberInput.scss';
+@import './inputs/ObjectInput.scss';
+@import './inputs/StringInput.scss';

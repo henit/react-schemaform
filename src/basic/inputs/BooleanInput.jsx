@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bemCn from 'bem-cn';
-import './BooleanInput.scss';
 
 const block = bemCn('rsf-boolean-input');
 
