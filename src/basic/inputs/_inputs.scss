@@ -1,0 +1,35 @@
+
+.rsf-array-input,
+.rsf-object-input {
+    &__button {
+        // background: #a9b7c0;
+        // color: #404040;
+        background: #E0E0E0;
+        color: #000000;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        line-height: 1.5em;
+        outline: none;
+        padding: 0.3em 1.5em;
+
+        &_color_blue {
+            // background: #5badde;
+            background: #1E88E5;
+            color: #ffffff;
+        }
+
+        &_color_green {
+            background: #3cc390;
+            color: #404040;
+        }
+
+        &_color_red {
+            // background: #fa594e;
+            background: #E53935;
+            color: #ffffff;
+            // color: #404040;
+        }
+    }
+}
