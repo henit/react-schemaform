@@ -1,6 +1,6 @@
 {
   "name": "react-schemaform",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Light weight react components for rendering JSON Schema forms",
   "main": "lib/index.js",
   "files": [
