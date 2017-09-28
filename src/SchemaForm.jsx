@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bemCn from 'bem-cn';
+// import bemCn from 'bem-cn';
 
-const block = bemCn('schema-form');
+// const block = bemCn('schema-form');
 
 export default class SchemaForm extends React.PureComponent {
 

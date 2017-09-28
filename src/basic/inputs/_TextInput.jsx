@@ -75,7 +75,6 @@ export default class TextInput extends React.PureComponent {
             value,
             counter,
             maxLength,
-            autoFocus,
             onChange,
             onFocus,
             onBlur
@@ -132,7 +131,6 @@ TextInput.propTypes = {
     counter: PropTypes.bool,
     maxLength: PropTypes.number, // Max value characters
     maxHeight: PropTypes.number, // Pixels
-    autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
@@ -144,6 +142,5 @@ TextInput.defaultProps = {
     styled: true,
     type: 'text',
     multiline: false,
-    maxHeight: 400,
-    autoFocus: false
+    maxHeight: 400
 };

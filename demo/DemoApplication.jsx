@@ -84,6 +84,7 @@ export default class DemoApplication extends React.PureComponent {
     }
 
     render() {
+        /* eslint-disable max-len */
         return (
             <div>
                 <h1>React Schema Form</h1>
@@ -296,6 +297,7 @@ export default class DemoApplication extends React.PureComponent {
                 </div>
             </div>
         );
+        /* eslint-enable max-len */
     }
 
 }

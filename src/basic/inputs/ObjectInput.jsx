@@ -52,9 +52,6 @@ export default class ObjectInput extends React.PureComponent {
     render() {
         const { className, components, schema, value } = this.props;
 
-        // const numItems = (value || []).length;
-
-        console.info('OBJECT VALUE', value);
         const inputProps = _.union(Object.keys(value || {}), Object.keys(schema.properties || {}));
         const multiple = Boolean(inputProps.length > 0);
 

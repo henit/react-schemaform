@@ -30,7 +30,7 @@ export default class BooleanInput extends React.PureComponent {
         } = this.props;
 
         const label = schema.title || propName || schema.description;
-        const uid = `bool-${Math.round(Math.random()*10000000)}`;
+        const uid = `bool-${Math.round(Math.random() * 10000000)}`;
 
         return (
             <div className={ block.mix(className)() }>

@@ -9,9 +9,11 @@ export default class LabelField extends React.PureComponent {
     render() {
         const { propName, schema, children } = this.props;
 
+        const label = schema.title || propName || schema.type || <em>Unnamed field</em>;
+
         return (
             <div className={ block() }>
-                <label className={ block('label')() }>{ schema.title || propName || schema.type || <em>Unnamed field</em> }</label>
+                <label className={ block('label')() }>{ label }</label>
                 { children }
                 { schema.description &&
                     <span className={ block('description')() }>
