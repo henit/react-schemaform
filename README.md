@@ -38,7 +38,7 @@ Using dependency injection to support multiple rendering themes/libraries. Easil
 
 *Work in progress*
 
-## TODO
+### TODO
 
 - Inline validation
 - Unsupported validation keywords (list below)
@@ -57,6 +57,7 @@ Using dependency injection to support multiple rendering themes/libraries. Easil
   - null
   - array
   - object
+- maxLength (counter)
 - items (schema object)
 - properties
 - additionalProperties
@@ -99,6 +100,7 @@ Using dependency injection to support multiple rendering themes/libraries. Easil
 - anyOf
 - oneOf
 - not
+- readOnly
 
 ## Rendering frameworks
 

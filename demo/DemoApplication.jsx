@@ -17,7 +17,7 @@ export default class DemoApplication extends React.PureComponent {
         super(props);
 
         this.state = {
-            demos: 'object'
+            demos: 'deep-object'
         };
         this._changeHandlers = {};
     }
@@ -27,8 +27,6 @@ export default class DemoApplication extends React.PureComponent {
             || (value => this.setState({ [formKey]: value }));
 
         const value = this.state[formKey];
-
-        console.info('VALUE', value);
 
         return (
             <div className="demo">
@@ -126,11 +124,17 @@ export default class DemoApplication extends React.PureComponent {
 
                     { this.state.demos === 'string' &&
                         <div className="demos">
-                            { this.renderSchemaExample('String', 'string-1', {
+                            { this.renderSchemaExample('Simple schema', 'string-1', {
                                 type: 'string'
                             }) }
 
-                            { this.renderSchemaExample('String', 'string-2', {
+                            { this.renderSchemaExample('Short string', 'string-2', {
+                                title: 'String primitive',
+                                type: 'string',
+                                maxLength: 32
+                            }) }
+
+                            { this.renderSchemaExample('Long string', 'string-3', {
                                 title: 'String primitive',
                                 type: 'string'
                             }) }
@@ -261,22 +265,28 @@ export default class DemoApplication extends React.PureComponent {
                                 properties: {
                                     name: { type: 'string', title: 'Name', description: 'User name' },
                                     email: { type: 'string', format: 'email', title: 'E-mail' },
-                                    createdAt: { type: 'string', format: 'date-time', title: 'Created at', description: 'User creation timestamp' },
+                                    createdAt: { type: 'string', format: 'date-time', description: 'User creation timestamp' },
                                     verified: { type: 'boolean', title: 'Verified', description: 'Is user verified by e-mail' },
                                     articles: {
                                         type: 'array',
                                         items: {
-                                            id: { type: 'string', readOnly: true },
-                                            title: { type: 'string', maxLength: 128 },
-                                            content: { type: 'string' },
-                                            published: { type: 'boolean', title: 'Published' },
-                                            pinned: { type: 'boolean' }
+                                            type: 'object',
+                                            properties: {
+                                                id: { type: 'string', readOnly: true },
+                                                title: { type: 'string', maxLength: 128 },
+                                                content: { type: 'string' },
+                                                published: { type: 'boolean', title: 'Published' },
+                                                pinned: { type: 'boolean' }
+                                            }
                                         }
                                     },
                                     config: {
-                                        notifications: { type: 'boolean', title: 'Notifications', description: 'Receive notifications?' },
-                                        twoFactorAuthentication: { type: 'boolean' },
-                                        public: { type: 'boolean', title: 'Public', description: 'Show on website' }
+                                        type: 'object',
+                                        properties: {
+                                            notifications: { type: 'boolean', title: 'Notifications', description: 'Receive notifications?' },
+                                            twoFactorAuthentication: { type: 'boolean' },
+                                            public: { type: 'boolean', title: 'Public', description: 'Show on website' }
+                                        }
                                     }
                                 },
                                 required: []

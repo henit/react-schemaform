@@ -1,14 +1,14 @@
 @import './inputs';
 
 .rsf-object-input {
-    /*&__icon {
-        vertical-align: bottom;
-        width: 1.5em;
-        height: 1.5em;
-    }*/
+    &_multiple {
+        border-left: 2px solid $color-blue;
+        padding-left: 8px;
+        margin-left: 2px;
+    }
 
-    &__add-property {
-        margin-top: 16px;
+    &__properties {
+        margin-bottom: 16px;
     }
 
     &__add-property-key {

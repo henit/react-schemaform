@@ -16,13 +16,13 @@
 
         &_color_blue {
             // background: #5badde;
-            background: #1E88E5;
+            background: $color-blue;
             color: #ffffff;
         }
 
         &_color_green {
-            background: #3cc390;
-            color: #404040;
+            background: $color-green;
+            color: #ffffff;
         }
 
         &_color_red {

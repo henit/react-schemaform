@@ -54,26 +54,35 @@ export default class ArrayInput extends React.PureComponent {
     render() {
         const { className, components, schema, value } = this.props;
 
+        const multiple = Boolean((value || []).length > 0);
+        const items = value || [];
+
         return (
-            <div className={ block.mix(className)() }>
-                { (value || [])
-                    .map((itemValue, i) =>
-                        <div className={ block('row')() } key={ `item-${i}` }>
-                            <SchemaForm
-                                components={ components }
-                                schema={ schema.items || { type: allTypes }}
-                                value={ itemValue }
-                                onChange={ value => this.handleItemChange(i, value) } />
-                            <button
-                                className={ block('button', { color: 'red' })}
-                                onClick={ () => this.handleRemoveItem(i) }>Delete</button>
-                        </div>
-                    )
+            <div className={ block.mix(className)({ multiple })() }>
+                { items.length > 0 &&
+                    <div className={ block('items')() }>
+                        { items
+                            .map((itemValue, i) =>
+                                <div className={ block('row')() } key={ `item-${i}` }>
+                                    <SchemaForm
+                                        components={ components }
+                                        schema={ schema.items || { type: allTypes }}
+                                        value={ itemValue }
+                                        onChange={ value => this.handleItemChange(i, value) } />
+                                    <button
+                                        className={ block('button', { color: 'red' })}
+                                        onClick={ () => this.handleRemoveItem(i) }>Delete</button>
+                                </div>
+                            )
+                        }
+                    </div>
                 }
 
-                <button
-                    className={ block('button', { color: 'blue' })() }
-                    onClick={ this.handleAddItem }>Add item</button>
+                <div className={ block('add-item')() }>
+                    <button
+                        className={ block('button', { color: 'green' })() }
+                        onClick={ this.handleAddItem }>Add item</button>
+                </div>
 
             </div>
         );

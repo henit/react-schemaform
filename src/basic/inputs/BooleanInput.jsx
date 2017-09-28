@@ -20,6 +20,7 @@ export default class BooleanInput extends React.PureComponent {
         const {
             className,
             // styled,
+            propName,
             schema,
             value
             // autoFocus,
@@ -28,7 +29,7 @@ export default class BooleanInput extends React.PureComponent {
             // onBlur
         } = this.props;
 
-        const label = schema.title || schema.description;
+        const label = schema.title || propName || schema.description;
         const uid = `bool-${Math.round(Math.random()*10000000)}`;
 
         return (
@@ -48,6 +49,7 @@ export default class BooleanInput extends React.PureComponent {
 }
 
 BooleanInput.propTypes = {
+    propName: PropTypes.string,
     className: PropTypes.string,
     // styled: PropTypes.bool,
     schema: PropTypes.object.isRequired,

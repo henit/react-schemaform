@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bemCn from 'bem-cn';
+import './InputField.scss';
 
 const block = bemCn('rsf-input-field');
 

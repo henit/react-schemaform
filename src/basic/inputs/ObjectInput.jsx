@@ -54,19 +54,28 @@ export default class ObjectInput extends React.PureComponent {
 
         // const numItems = (value || []).length;
 
+        console.info('OBJECT VALUE', value);
+        const inputProps = _.union(Object.keys(value || {}), Object.keys(schema.properties || {}));
+        const multiple = Boolean(inputProps.length > 0);
+
         return (
-            <div className={ block.mix(className)() }>
-                { _.union(Object.keys(value || {}), Object.keys(schema.properties || {}))
-                    .map(propName =>
-                        <div className={ block('row')() } key={ `item-${propName}` }>
-                            <SchemaForm
-                                components={ components }
-                                schema={ _.get(`properties.${propName}`, schema) || allTypesSchema }
-                                value={ _.get(propName, value) }
-                                onChange={ value => this.handlePropChange(propName, value) } />
-                            {/*<button onClick={ this.toggleAddItem }>Cancel</button>*/}
-                        </div>
-                    )
+            <div className={ block.mix(className)({ multiple })() }>
+                { inputProps.length > 0 &&
+                    <div className={ block('properties')() }>
+                        { inputProps
+                            .map(propName =>
+                                <div className={ block('row')() } key={ `item-${propName}` }>
+                                    <SchemaForm
+                                        propName={ propName }
+                                        components={ components }
+                                        schema={ _.get(`properties.${propName}`, schema) || allTypesSchema }
+                                        value={ _.get(propName, value) }
+                                        onChange={ value => this.handlePropChange(propName, value) } />
+                                    {/*<button onClick={ this.toggleAddItem }>Cancel</button>*/}
+                                </div>
+                            )
+                        }
+                    </div>
                 }
 
                 { schema.additionalProperties !== false &&

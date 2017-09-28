@@ -7,11 +7,11 @@ const block = bemCn('rsf-label-field');
 export default class LabelField extends React.PureComponent {
 
     render() {
-        const { schema, children } = this.props;
+        const { propName, schema, children } = this.props;
 
         return (
             <div className={ block() }>
-                <label className={ block('label')() }>{ schema.title || schema.type || <em>Unnamed field</em> }</label>
+                <label className={ block('label')() }>{ schema.title || propName || schema.type || <em>Unnamed field</em> }</label>
                 { children }
                 { schema.description &&
                     <span className={ block('description')() }>
@@ -25,6 +25,7 @@ export default class LabelField extends React.PureComponent {
 }
 
 LabelField.propTypes = {
+    propName: PropTypes.string,
     schema: PropTypes.object.isRequired,
     children: PropTypes.node
 };
