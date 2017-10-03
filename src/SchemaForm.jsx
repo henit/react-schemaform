@@ -13,6 +13,7 @@ export default class SchemaForm extends React.PureComponent {
         this.handleStringChange = this.handleStringChange.bind(this);
         this.handleNumberChange = this.handleNumberChange.bind(this);
         this.handleIntegerChange = this.handleIntegerChange.bind(this);
+        this.handleBooleanChange = this.handleBooleanChange.bind(this);
 
         this.state = {
             addItem: false
@@ -39,6 +40,10 @@ export default class SchemaForm extends React.PureComponent {
 
     handleIntegerChange(value) {
         this.props.onChange(parseInt(value) || undefined);
+    }
+
+    handleBooleanChange(value) {
+        this.props.onChange(value || undefined);
     }
 
     render() {
@@ -120,8 +125,8 @@ export default class SchemaForm extends React.PureComponent {
                         <BooleanInput
                             propName={ propName }
                             schema={ schema }
-                            value={ value }
-                            onChange={ this.handleChange }
+                            value={ value || false }
+                            onChange={ this.handleBooleanChange }
                             autoFocus={ autoFocus } />
                     </BooleanField>
                 );
