@@ -38,7 +38,7 @@ export default class BooleanInput extends React.PureComponent {
                     id={ uid }
                     className={ block('input')() }
                     type="checkbox"
-                    onClick={ this.handleChange }
+                    onChange={ this.handleChange }
                     checked={ Boolean(value) } />
                 { label &&
                     <label htmlFor={ uid }>{ label }</label>
