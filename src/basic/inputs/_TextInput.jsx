@@ -80,14 +80,14 @@ export default class TextInput extends React.PureComponent {
             onBlur
         } = this.props;
 
-        const invalid = Boolean(maxLength && value.length > maxLength);
+        const invalid = Boolean(maxLength && (value || '').length > maxLength);
         const elementValue = value ? value.toString() : '';
 
         return (
             <div className={ block.mix(className)() }>
                 { counter &&
                     <div className={ block('counter', { invalid })() }>
-                        { value.length }{ maxLength && ` / ${maxLength}` }
+                        { (value || '').length }{ maxLength && ` / ${maxLength}` }
                     </div>
                 }
                 { (multiline && type === 'text') ?
