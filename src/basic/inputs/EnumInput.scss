@@ -1,0 +1,24 @@
+@import '../variables';
+
+.rsf-enum-input {
+    // &__input {
+    //     margin-right: 1em;
+    // }
+
+    &__input {
+        width: 100%;
+        display: inline-block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        background: #ffffff;
+        font-size: $input-font-size;
+        padding: $input-padding;
+        border: 1px solid $input-border-color;
+        border-radius: $input-border-radius;
+        // line-height: 1em;
+        // font-size: 14px;
+        // color: #404040;
+    }
+}

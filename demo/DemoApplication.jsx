@@ -18,6 +18,10 @@ export default class DemoApplication extends React.PureComponent {
 
         this.state = {
             demos: 'deep-object'
+            // 'deep-object-1': {
+            //     type: 'das',
+            //     createdAt: 'abc def'
+            // }
         };
         this._changeHandlers = {};
     }
@@ -165,7 +169,8 @@ export default class DemoApplication extends React.PureComponent {
                             { this.renderSchemaExample('Integer', 'integer-2', {
                                 title: 'Integer',
                                 description: 'Integer type',
-                                type: 'integer'
+                                type: 'integer',
+                                minimum: 10
                             }) }
                         </div>
                     }
@@ -264,9 +269,12 @@ export default class DemoApplication extends React.PureComponent {
                                 title: 'Example schema',
                                 type: 'object',
                                 properties: {
-                                    name: { type: 'string', title: 'Name', description: 'User name' },
+                                    id: { type: 'string', title: 'ID', description: 'Unique identifier', readOnly: true },
+                                    notChanging: { type: 'string', const: 'fixed-value', title: 'Not changing' },
+                                    name: { type: 'string', title: 'Name', description: 'User name', minLength: 3 },
                                     email: { type: 'string', format: 'email', title: 'E-mail' },
                                     createdAt: { type: 'string', format: 'date-time', description: 'User creation timestamp' },
+                                    type: { type: 'string', enum: ['user', 'article', 'category'] },
                                     verified: { type: 'boolean', title: 'Verified', description: 'Is user verified by e-mail' },
                                     articles: {
                                         type: 'array',

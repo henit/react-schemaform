@@ -11,7 +11,7 @@ import IntegerInput from './inputs/IntegerInput';
 import NumberInput from './inputs/NumberInput';
 import ObjectInput from './inputs/ObjectInput';
 import StringInput from './inputs/StringInput';
-
+import EnumInput from './inputs/EnumInput';
 
 export default class BasicSchemaForm extends React.PureComponent {
 
@@ -28,12 +28,14 @@ export default class BasicSchemaForm extends React.PureComponent {
                 NumberField: LabelField,
                 ObjectField: LabelField,
                 StringField: LabelField,
+                EnumField: LabelField,
                 ArrayInput,
                 BooleanInput,
                 IntegerInput,
                 NumberInput,
                 ObjectInput,
-                StringInput
+                StringInput,
+                EnumInput
             }
         };
 

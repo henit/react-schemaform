@@ -6,19 +6,19 @@ import _TextInput from './_TextInput';
 const block = bemCn('rsf-string-input');
 
 export default function StringInput({ schema, value, autoFocus, onChange }) {
-    return (
+    return (schema.readOnly || schema.const) ?
+        value || <em>No value</em>
+        :
         <_TextInput
             className={ block() }
             value={ value }
             styled={ true }
             type="text"
-            placeholder={ schema.title }
             multiline={ Boolean(!schema.maxLength || schema.maxLength > 255) }
             minLength={ schema.minLength }
             maxLength={ schema.maxLength }
             counter={ Boolean(schema.minLength !== undefined || schema.maxLength !== undefined) }
-            onChange={ onChange } />
-    );
+            onChange={ onChange } />;
 }
 
 StringInput.propTypes = {

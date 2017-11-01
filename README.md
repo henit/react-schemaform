@@ -45,62 +45,60 @@ Using dependency injection to support multiple rendering themes/libraries. Easil
 
 ## JSON Schema feature support
 
-**Schema keywords**
+**Schema keywords supported**
 
-- title
-- description
-- type
-  - string
-  - number
-  - integer
-  - boolean
-  - null
-  - array
-  - object
-- maxLength (counter)
-- items (schema object)
-- properties
-- additionalProperties
-- const
+- [x] title
+- [x] description
+- [x] type
+  - [x] string
+  - [x] number
+  - [x] integer
+  - [x] boolean
+  - [x] null
+  - [x] array
+  - [x] object
+- [x] maxLength (counter)
+- [x] items (schema object)
+- [ ] items (array of schemas)
+- [x] properties
+- [x] additionalProperties
+- [x] const
 
-**TODO (not supported)**
-
-- items (array of schemas)
-- format
-  - date-time
-  - email
-  - hostname
-  - ipv4
-  - ipv6
-  - uri
-  - uri-reference
-  - uri-template
-  - json-pointer
-- multipleOf
-- maximum
-- exclusiveMaximum
-- minimum
-- exclusiveMinimum
-- maxLength
-- minLength
-- pattern
-- additionalItems
-- maxItems
-- minItems
-- uniqueItems
-- contains
-- maxProperties
-- minProperties
-- required
-- patternProperties
-- dependencies
-- propertyNames
-- enum
-- allOf
-- anyOf
-- oneOf
-- not
-- readOnly
+- [ ] format
+  - [ ] date-time
+  - [ ] email
+  - [ ] hostname
+  - [ ] ipv4
+  - [ ] ipv6
+  - [ ] uri
+  - [ ] uri-reference
+  - [ ] uri-template
+  - [ ] json-pointer
+- [x] readOnly
+- [ ] multipleOf
+- [x] maximum
+- [x] exclusiveMaximum
+- [x] minimum
+- [x] exclusiveMinimum
+- [x] maxLength
+- [x] minLength
+- [x] pattern
+- [ ] additionalItems
+- [x] maxItems
+- [x] minItems
+- [ ] uniqueItems
+- [ ] contains
+- [x] maxProperties
+- [x] minProperties
+- [x] required
+- [x] patternProperties
+- [ ] dependencies
+- [ ] propertyNames
+- [x] enum
+- [ ] allOf
+- [ ] anyOf
+- [ ] oneOf
+- [ ] not
 
 ## Rendering frameworks
 

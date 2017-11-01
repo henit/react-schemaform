@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bemCn from 'bem-cn';
+import FieldDescription from './FieldDescription';
+import FieldValidation from './FieldValidation';
 
 const block = bemCn('rsf-label-field');
 
 export default class LabelField extends React.PureComponent {
 
     render() {
-        const { propName, schema, children } = this.props;
+        const { propName, value, schema, children } = this.props;
 
         const label = schema.title || propName || schema.type || <em>Unnamed field</em>;
 
@@ -15,11 +17,8 @@ export default class LabelField extends React.PureComponent {
             <div className={ block() }>
                 <label className={ block('label')() }>{ label }</label>
                 { children }
-                { schema.description &&
-                    <span className={ block('description')() }>
-                        { schema.description }
-                    </span>
-                }
+                <FieldDescription schema={ schema } />
+                <FieldValidation schema={ schema } value={ value } />
             </div>
         );
     }
@@ -28,6 +27,7 @@ export default class LabelField extends React.PureComponent {
 
 LabelField.propTypes = {
     propName: PropTypes.string,
+    value: PropTypes.any,
     schema: PropTypes.object.isRequired,
     children: PropTypes.node
 };

@@ -49,17 +49,22 @@ export default class SchemaForm extends React.PureComponent {
     render() {
         const { propName, components, schema, value, autoFocus } = this.props;
 
-        if (schema.const) {
-            return (
-                <div>
-                    <em>Null</em><br />
-                    { value }
-                </div>
-            );
-        }
-
         if (Array.isArray(schema.type)) {
             return <em>Multiple types not supported yet</em>;
+        }
+
+        if (schema.enum) {
+            const { EnumField, EnumInput } = components;
+
+            return (
+                <EnumField propName={ propName } schema={ schema } value={ value }>
+                    <EnumInput
+                        components={ components }
+                        schema={ schema }
+                        value={ value }
+                        onChange={ this.handleChange } />
+                </EnumField>
+            );
         }
 
         switch (schema.type) {
@@ -69,7 +74,7 @@ export default class SchemaForm extends React.PureComponent {
             case 'object': {
                 const { ObjectField, ObjectInput } = components;
                 return (
-                    <ObjectField propName={ propName } schema={ schema }>
+                    <ObjectField propName={ propName } schema={ schema } value={ value }>
                         <ObjectInput
                             components={ components }
                             schema={ schema }
@@ -82,7 +87,7 @@ export default class SchemaForm extends React.PureComponent {
             case 'array': {
                 const { ArrayField, ArrayInput } = components;
                 return (
-                    <ArrayField propName={ propName } schema={ schema }>
+                    <ArrayField propName={ propName } schema={ schema } value={ value }>
                         <ArrayInput
                             components={ components }
                             schema={ schema }
@@ -95,7 +100,7 @@ export default class SchemaForm extends React.PureComponent {
             case 'integer': {
                 const { IntegerField, IntegerInput } = components;
                 return (
-                    <IntegerField propName={ propName } schema={ schema }>
+                    <IntegerField propName={ propName } schema={ schema } value={ value }>
                         <IntegerInput
                             schema={ schema }
                             value={ value }
@@ -108,7 +113,7 @@ export default class SchemaForm extends React.PureComponent {
             case 'number': {
                 const { NumberField, NumberInput } = components;
                 return (
-                    <NumberField propName={ propName } schema={ schema }>
+                    <NumberField propName={ propName } schema={ schema } value={ value }>
                         <NumberInput
                             schema={ schema }
                             value={ value }
@@ -121,7 +126,7 @@ export default class SchemaForm extends React.PureComponent {
             case 'boolean': {
                 const { BooleanField, BooleanInput } = components;
                 return (
-                    <BooleanField propName={ propName } schema={ schema }>
+                    <BooleanField propName={ propName } schema={ schema } value={ value }>
                         <BooleanInput
                             propName={ propName }
                             schema={ schema }
@@ -135,7 +140,7 @@ export default class SchemaForm extends React.PureComponent {
             case 'string': {
                 const { StringField, StringInput } = components;
                 return (
-                    <StringField propName={ propName } schema={ schema }>
+                    <StringField propName={ propName } schema={ schema } value={ value }>
                         <StringInput
                             schema={ schema }
                             value={ value }
