@@ -55,7 +55,9 @@ export default class ObjectInput extends React.PureComponent {
         const inputProps = _.union(Object.keys(value || {}), Object.keys(schema.properties || {}));
         const multiple = Boolean(inputProps.length > 0);
 
-        return (
+        return (schema.readOnly || schema.const) ?
+            value && <pre>{ JSON.stringify(value, null, 4) }</pre> || <em>No value</em>
+            :
             <div className={ block.mix(className)({ multiple })() }>
                 { inputProps.length > 0 &&
                     <div className={ block('properties')() }>
@@ -88,8 +90,7 @@ export default class ObjectInput extends React.PureComponent {
                             onClick={ this.handleAddProp }>Add property</button>
                     </div>
                 }
-            </div>
-        );
+            </div>;
     }
 }
 

@@ -7,7 +7,7 @@ const block = bemCn('rsf-string-input');
 
 export default function StringInput({ schema, value, autoFocus, onChange }) {
     return (schema.readOnly || schema.const) ?
-        value || <em>No value</em>
+        value && <span>{ value }</span> || <em>No value</em>
         :
         <_TextInput
             className={ block() }

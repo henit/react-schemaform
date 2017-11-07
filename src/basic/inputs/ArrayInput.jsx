@@ -57,7 +57,9 @@ export default class ArrayInput extends React.PureComponent {
         const multiple = Boolean((value || []).length > 0);
         const items = value || [];
 
-        return (
+        return (schema.readOnly || schema.const) ?
+            value && <pre>{ JSON.stringify(value, null, 4) }</pre> || <em>No value</em>
+            :
             <div className={ block.mix(className)({ multiple })() }>
                 { items.length > 0 &&
                     <div className={ block('items')() }>
@@ -83,9 +85,7 @@ export default class ArrayInput extends React.PureComponent {
                         className={ block('button', { color: 'green' })() }
                         onClick={ this.handleAddItem }>Add item</button>
                 </div>
-
-            </div>
-        );
+            </div>;
     }
 }
 

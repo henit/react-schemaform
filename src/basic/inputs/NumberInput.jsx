@@ -6,7 +6,9 @@ import _TextInput from './_TextInput';
 const block = bemCn('rsf-number-input');
 
 export default function NumberInput({ schema, value, onChange }) {
-    return (
+    return (schema.readOnly || schema.const) ?
+        value && <span>{ value }</span> || <em>No value</em>
+        :
         <_TextInput
             className={ block() }
             value={ value }
@@ -17,8 +19,7 @@ export default function NumberInput({ schema, value, onChange }) {
             minLength={ schema.minLength }
             maxLength={ schema.maxLength }
             counter={ Boolean(schema.minLength !== undefined || schema.maxLength !== undefined) }
-            onChange={ onChange } />
-    );
+            onChange={ onChange } />;
 }
 
 NumberInput.propTypes = {

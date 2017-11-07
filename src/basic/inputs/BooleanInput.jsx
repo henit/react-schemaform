@@ -32,7 +32,9 @@ export default class BooleanInput extends React.PureComponent {
         const label = schema.title || propName || schema.description;
         const uid = `bool-${Math.round(Math.random() * 10000000)}`;
 
-        return (
+        return (schema.readOnly || schema.const) ?
+            value && <span>{ value }</span> || <em>No value</em>
+            :
             <div className={ block.mix(className)() }>
                 <input
                     id={ uid }
@@ -43,8 +45,7 @@ export default class BooleanInput extends React.PureComponent {
                 { label &&
                     <label htmlFor={ uid }>{ label }</label>
                 }
-            </div>
-        );
+            </div>;
     }
 }
 
